@@ -5,6 +5,7 @@ from comfy.sample import *
 from comfy.samplers import *
 
 from .Fooocus import core
+from .Fooocus import patch
 
 class KSamplerWithRefiner:
     @classmethod
@@ -27,6 +28,7 @@ class KSamplerWithRefiner:
                     "start_at_step": ("INT", {"default": 0, "min": 0, "max": 10000}),
                     "end_at_step": ("INT", {"default": 10000, "min": 0, "max": 10000}),
                     "return_with_leftover_noise": (["disable", "enable"], ),
+                    "sharpness": ("FLOAT", {"default": 1.0, "min": 0.0, "max": 100.0}),
                      }
                 }
 
@@ -35,11 +37,13 @@ class KSamplerWithRefiner:
 
     CATEGORY = "sampling"
 
-    def sample(self, model, refiner_model, add_noise, noise_seed, steps, refiner_switch_step, cfg, sampler_name, scheduler, positive, negative, refiner_positive, refiner_negative, latent_image, start_at_step, end_at_step, return_with_leftover_noise, denoise=1.0):
+    def sample(self, model, refiner_model, add_noise, noise_seed, steps, refiner_switch_step, cfg, sampler_name, scheduler, positive, negative, refiner_positive, refiner_negative, latent_image, start_at_step, end_at_step, return_with_leftover_noise, sharpness, denoise=1.0):
         force_full_denoise = True
         if return_with_leftover_noise == "enable":
             force_full_denoise = False
         disable_noise = False
         if add_noise == "disable":
             disable_noise = True
+        patch.sharpness = sharpness
+
         return (core.ksampler_with_refiner(model, positive, negative, refiner_model, refiner_positive, refiner_negative, latent_image, noise_seed, steps, refiner_switch_step, cfg, sampler_name, scheduler, denoise=denoise, disable_noise=disable_noise, start_step=start_at_step, last_step=end_at_step, force_full_denoise=force_full_denoise), )
