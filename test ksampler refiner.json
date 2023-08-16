@@ -1,6 +1,6 @@
 {
   "last_node_id": 29,
-  "last_link_id": 56,
+  "last_link_id": 57,
   "nodes": [
     {
       "id": 19,
@@ -243,7 +243,6 @@
           "name": "MODEL",
           "type": "MODEL",
           "links": [
-            41,
             52
           ],
           "slot_index": 0
@@ -419,7 +418,8 @@
           "name": "MODEL",
           "type": "MODEL",
           "links": [
-            54
+            54,
+            57
           ],
           "shape": 3,
           "slot_index": 0
@@ -440,8 +440,8 @@
       },
       "widgets_values": [
         "sd_xl_offset_example-lora_1.0.safetensors",
-        0.5,
-        0.5
+        0.25,
+        1
       ]
     },
     {
@@ -611,10 +611,10 @@
         1354,
         -369
       ],
-      "size": {
-        "0": 320,
-        "1": 630
-      },
+      "size": [
+        320,
+        654
+      ],
       "flags": {},
       "order": 12,
       "mode": 0,
@@ -680,15 +680,16 @@
         "karras",
         0,
         10000,
-        "disable"
+        "disable",
+        10
       ]
     },
     {
       "id": 25,
       "type": "KSamplerAdvanced",
       "pos": [
-        1355,
-        301
+        1358.22102,
+        365.4203999999998
       ],
       "size": {
         "0": 315,
@@ -696,12 +697,12 @@
       },
       "flags": {},
       "order": 13,
-      "mode": 0,
+      "mode": 2,
       "inputs": [
         {
           "name": "model",
           "type": "MODEL",
-          "link": 41
+          "link": 57
         },
         {
           "name": "positive",
@@ -790,8 +791,8 @@
       "id": 26,
       "type": "KSamplerAdvanced",
       "pos": [
-        1790,
-        300
+        1793,
+        366
       ],
       "size": {
         "0": 315,
@@ -799,7 +800,7 @@
       },
       "flags": {},
       "order": 15,
-      "mode": 0,
+      "mode": 2,
       "inputs": [
         {
           "name": "model",
@@ -879,8 +880,8 @@
       "id": 27,
       "type": "VAEDecode",
       "pos": [
-        2210,
-        300
+        2213.22102,
+        366.36911709999976
       ],
       "size": {
         "0": 210,
@@ -888,7 +889,7 @@
       },
       "flags": {},
       "order": 17,
-      "mode": 0,
+      "mode": 2,
       "inputs": [
         {
           "name": "samples",
@@ -921,7 +922,7 @@
       "type": "SaveImage",
       "pos": [
         3556,
-        -372
+        -370
       ],
       "size": {
         "0": 1041.4326171875,
@@ -929,7 +930,7 @@
       },
       "flags": {},
       "order": 18,
-      "mode": 0,
+      "mode": 2,
       "inputs": [
         {
           "name": "images",
@@ -1081,14 +1082,6 @@
       "VAE"
     ],
     [
-      41,
-      4,
-      0,
-      25,
-      0,
-      "MODEL"
-    ],
-    [
       42,
       17,
       0,
@@ -1207,6 +1200,14 @@
       22,
       0,
       "CLIP"
+    ],
+    [
+      57,
+      29,
+      0,
+      25,
+      0,
+      "MODEL"
     ]
   ],
   "groups": [],
