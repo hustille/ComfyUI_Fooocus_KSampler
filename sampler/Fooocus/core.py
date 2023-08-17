@@ -159,7 +159,7 @@ def ksampler(model, positive, negative, latent, seed=None, steps=30, cfg=7.0, sa
 
     samples = samples.cpu()
 
-    comfy.sample.cleanup_additional_modelsst_cond(models)
+    comfy.sample.cleanup_additional_models(models)
 
     out = latent.copy()
     out["samples"] = samples
@@ -249,7 +249,7 @@ def ksampler_with_refiner(model, positive, negative, refiner, refiner_positive, 
 
     samples = samples.cpu()
 
-    comfy.sample.cleanup_additional_modelsst_cond(models)
+    comfy.sample.cleanup_additional_models(models)
 
     out = latent.copy()
     out["samples"] = samples
