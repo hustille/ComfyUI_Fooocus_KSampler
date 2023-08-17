@@ -10,10 +10,14 @@ import latent_preview
 
 from comfy.sd import load_checkpoint_guess_config
 from nodes import VAEDecode, EmptyLatentImage, CLIPTextEncode
-from comfy.sample import prepare_mask, broadcast_cond, load_additional_models, cleanup_additional_models
+import comfy.sample
 from .samplers_advanced import KSampler, KSamplerWithRefiner
 from .patch import patch_all
 
+if hasattr(comfy.sample, "get_additional_models"):
+    get_additional_models = comfy.sample.get_additional_models
+else:
+    get_additional_models = comfy.sample.load_additional_models
 
 patch_all()
 opCLIPTextEncode = CLIPTextEncode()
@@ -132,7 +136,7 @@ def ksampler(model, positive, negative, latent, seed=None, steps=30, cfg=7.0, sa
     disable_pbar = False
 
     if noise_mask is not None:
-        noise_mask = prepare_mask(noise_mask, noise.shape, device)
+        noise_mask = comfy.sample.prepare_mask(noise_mask, noise.shape, device)
 
     comfy.model_management.load_model_gpu(model)
     real_model = model.model
@@ -140,10 +144,10 @@ def ksampler(model, positive, negative, latent, seed=None, steps=30, cfg=7.0, sa
     noise = noise.to(device)
     latent_image = latent_image.to(device)
 
-    positive_copy = broadcast_cond(positive, noise.shape[0], device)
-    negative_copy = broadcast_cond(negative, noise.shape[0], device)
+    positive_copy = comfy.sample.broadcast_cond(positive, noise.shape[0], device)
+    negative_copy = comfy.sample.broadcast_cond(negative, noise.shape[0], device)
 
-    models = load_additional_models(positive, negative, model.model_dtype())
+    models = get_additional_models(positive, negative)
 
     sampler = KSampler(real_model, steps=steps, device=device, sampler=sampler_name, scheduler=scheduler,
                        denoise=denoise, model_options=model.model_options)
@@ -155,7 +159,7 @@ def ksampler(model, positive, negative, latent, seed=None, steps=30, cfg=7.0, sa
 
     samples = samples.cpu()
 
-    cleanup_additional_models(models)
+    comfy.sample.cleanup_additional_modelsst_cond(models)
 
     out = latent.copy()
     out["samples"] = samples
@@ -217,20 +221,20 @@ def ksampler_with_refiner(model, positive, negative, refiner, refiner_positive, 
     disable_pbar = False
 
     if noise_mask is not None:
-        noise_mask = prepare_mask(noise_mask, noise.shape, device)
+        noise_mask = comfy.sample.prepare_mask(noise_mask, noise.shape, device)
 
     comfy.model_management.load_model_gpu(model)
 
     noise = noise.to(device)
     latent_image = latent_image.to(device)
 
-    positive_copy = broadcast_cond(positive, noise.shape[0], device)
-    negative_copy = broadcast_cond(negative, noise.shape[0], device)
+    positive_copy = comfy.sample.broadcast_cond(positive, noise.shape[0], device)
+    negative_copy = comfy.sample.broadcast_cond(negative, noise.shape[0], device)
 
-    refiner_positive_copy = broadcast_cond(refiner_positive, noise.shape[0], device)
-    refiner_negative_copy = broadcast_cond(refiner_negative, noise.shape[0], device)
+    refiner_positive_copy = comfy.sample.broadcast_cond(refiner_positive, noise.shape[0], device)
+    refiner_negative_copy = comfy.sample.broadcast_cond(refiner_negative, noise.shape[0], device)
 
-    models = load_additional_models(positive, negative, model.model_dtype())
+    models = get_additional_models(positive, negative)
 
     sampler = KSamplerWithRefiner(model=model, refiner_model=refiner, steps=steps, device=device,
                                   sampler=sampler_name, scheduler=scheduler,
@@ -245,7 +249,7 @@ def ksampler_with_refiner(model, positive, negative, refiner, refiner_positive, 
 
     samples = samples.cpu()
 
-    cleanup_additional_models(models)
+    comfy.sample.cleanup_additional_modelsst_cond(models)
 
     out = latent.copy()
     out["samples"] = samples
