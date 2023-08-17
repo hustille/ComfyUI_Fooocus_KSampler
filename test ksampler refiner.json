@@ -1,115 +1,7 @@
 {
-  "last_node_id": 29,
-  "last_link_id": 57,
+  "last_node_id": 32,
+  "last_link_id": 63,
   "nodes": [
-    {
-      "id": 19,
-      "type": "Text Multiline",
-      "pos": [
-        -350,
-        -330
-      ],
-      "size": {
-        "0": 400,
-        "1": 200
-      },
-      "flags": {},
-      "order": 0,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": [
-            24
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "title": "positive g",
-      "properties": {
-        "Node name for S&R": "Text Multiline"
-      },
-      "widgets_values": [
-        "beautiful scenery nature glass bottle landscape, , purple galaxy bottle,"
-      ],
-      "color": "#232",
-      "bgcolor": "#353"
-    },
-    {
-      "id": 20,
-      "type": "Text Multiline",
-      "pos": [
-        -350,
-        -90
-      ],
-      "size": {
-        "0": 400,
-        "1": 200
-      },
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": [
-            27,
-            28
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "title": "positive L",
-      "properties": {
-        "Node name for S&R": "Text Multiline"
-      },
-      "widgets_values": [
-        ""
-      ],
-      "color": "#232",
-      "bgcolor": "#353"
-    },
-    {
-      "id": 21,
-      "type": "Text Multiline",
-      "pos": [
-        -350,
-        150
-      ],
-      "size": {
-        "0": 400,
-        "1": 200
-      },
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": [
-            25,
-            26,
-            29
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "title": "negative",
-      "properties": {
-        "Node name for S&R": "Text Multiline"
-      },
-      "widgets_values": [
-        "text, watermark"
-      ],
-      "color": "#322",
-      "bgcolor": "#533"
-    },
     {
       "id": 5,
       "type": "EmptyLatentImage",
@@ -122,7 +14,7 @@
         "1": 106
       },
       "flags": {},
-      "order": 3,
+      "order": 0,
       "mode": 0,
       "outputs": [
         {
@@ -156,7 +48,7 @@
         "1": 98
       },
       "flags": {},
-      "order": 4,
+      "order": 1,
       "mode": 0,
       "outputs": [
         {
@@ -203,7 +95,7 @@
         "1": 58
       },
       "flags": {},
-      "order": 5,
+      "order": 2,
       "mode": 0,
       "outputs": [
         {
@@ -236,7 +128,7 @@
         "1": 98
       },
       "flags": {},
-      "order": 6,
+      "order": 3,
       "mode": 0,
       "outputs": [
         {
@@ -281,7 +173,7 @@
         "1": 200
       },
       "flags": {},
-      "order": 7,
+      "order": 8,
       "mode": 0,
       "inputs": [
         {
@@ -292,7 +184,7 @@
         {
           "name": "text",
           "type": "STRING",
-          "link": 28,
+          "link": 60,
           "widget": {
             "name": "text",
             "config": [
@@ -341,7 +233,7 @@
         "1": 200
       },
       "flags": {},
-      "order": 8,
+      "order": 9,
       "mode": 0,
       "inputs": [
         {
@@ -352,7 +244,7 @@
         {
           "name": "text",
           "type": "STRING",
-          "link": 29,
+          "link": 63,
           "widget": {
             "name": "text",
             "config": [
@@ -399,7 +291,7 @@
         "1": 126
       },
       "flags": {},
-      "order": 9,
+      "order": 7,
       "mode": 0,
       "inputs": [
         {
@@ -467,7 +359,7 @@
         {
           "name": "text_g",
           "type": "STRING",
-          "link": 24,
+          "link": 58,
           "widget": {
             "name": "text_g",
             "config": [
@@ -483,7 +375,7 @@
         {
           "name": "text_l",
           "type": "STRING",
-          "link": 27,
+          "link": 59,
           "widget": {
             "name": "text_l",
             "config": [
@@ -547,7 +439,7 @@
         {
           "name": "text_g",
           "type": "STRING",
-          "link": 25,
+          "link": 61,
           "widget": {
             "name": "text_g",
             "config": [
@@ -563,7 +455,7 @@
         {
           "name": "text_l",
           "type": "STRING",
-          "link": 26,
+          "link": 62,
           "widget": {
             "name": "text_l",
             "config": [
@@ -611,10 +503,10 @@
         1354,
         -369
       ],
-      "size": [
-        320,
-        654
-      ],
+      "size": {
+        "0": 320,
+        "1": 654
+      },
       "flags": {},
       "order": 12,
       "mode": 0,
@@ -942,6 +834,135 @@
       "widgets_values": [
         "ksampler_separate"
       ]
+    },
+    {
+      "id": 30,
+      "type": "PrimitiveNode",
+      "pos": [
+        -340,
+        -320
+      ],
+      "size": {
+        "0": 380,
+        "1": 190
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            58
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "text_g",
+            "config": [
+              "STRING",
+              {
+                "multiline": true,
+                "default": "CLIP_G"
+              }
+            ]
+          }
+        }
+      ],
+      "title": "positive G",
+      "properties": {},
+      "widgets_values": [
+        "beautiful scenery nature glass bottle landscape, , purple galaxy bottle,"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 31,
+      "type": "PrimitiveNode",
+      "pos": [
+        -340,
+        -90
+      ],
+      "size": {
+        "0": 380,
+        "1": 190
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            59,
+            60
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "text_l",
+            "config": [
+              "STRING",
+              {
+                "multiline": true,
+                "default": "CLIP_L"
+              }
+            ]
+          }
+        }
+      ],
+      "title": "positive L",
+      "properties": {},
+      "widgets_values": [
+        "photography, 35mm lens, f1.8, bokeh"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 32,
+      "type": "PrimitiveNode",
+      "pos": [
+        -340,
+        140
+      ],
+      "size": {
+        "0": 380,
+        "1": 190
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            61,
+            62,
+            63
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "text_g",
+            "config": [
+              "STRING",
+              {
+                "multiline": true,
+                "default": "CLIP_G"
+              }
+            ]
+          }
+        }
+      ],
+      "title": "negative",
+      "properties": {},
+      "widgets_values": [
+        "text, watermark"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
     }
   ],
   "links": [
@@ -976,54 +997,6 @@
       8,
       0,
       "LATENT"
-    ],
-    [
-      24,
-      19,
-      0,
-      17,
-      1,
-      "STRING"
-    ],
-    [
-      25,
-      21,
-      0,
-      22,
-      1,
-      "STRING"
-    ],
-    [
-      26,
-      21,
-      0,
-      22,
-      2,
-      "STRING"
-    ],
-    [
-      27,
-      20,
-      0,
-      17,
-      2,
-      "STRING"
-    ],
-    [
-      28,
-      20,
-      0,
-      23,
-      1,
-      "STRING"
-    ],
-    [
-      29,
-      21,
-      0,
-      18,
-      1,
-      "STRING"
     ],
     [
       31,
@@ -1208,6 +1181,54 @@
       25,
       0,
       "MODEL"
+    ],
+    [
+      58,
+      30,
+      0,
+      17,
+      1,
+      "STRING"
+    ],
+    [
+      59,
+      31,
+      0,
+      17,
+      2,
+      "STRING"
+    ],
+    [
+      60,
+      31,
+      0,
+      23,
+      1,
+      "STRING"
+    ],
+    [
+      61,
+      32,
+      0,
+      22,
+      1,
+      "STRING"
+    ],
+    [
+      62,
+      32,
+      0,
+      22,
+      2,
+      "STRING"
+    ],
+    [
+      63,
+      32,
+      0,
+      18,
+      1,
+      "STRING"
     ]
   ],
   "groups": [],
