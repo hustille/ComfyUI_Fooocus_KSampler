@@ -162,119 +162,130 @@
       ]
     },
     {
-      "id": 23,
-      "type": "CLIPTextEncodeSDXLRefiner",
+      "id": 30,
+      "type": "PrimitiveNode",
       "pos": [
-        760,
-        -290
+        -340,
+        -320
       ],
       "size": {
-        "0": 400,
-        "1": 200
+        "0": 380,
+        "1": 190
       },
       "flags": {},
-      "order": 8,
+      "order": 4,
       "mode": 0,
-      "inputs": [
+      "outputs": [
         {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 38
-        },
-        {
-          "name": "text",
+          "name": "STRING",
           "type": "STRING",
-          "link": 60,
+          "links": [
+            58
+          ],
+          "slot_index": 0,
           "widget": {
-            "name": "text",
+            "name": "text_g",
             "config": [
               "STRING",
               {
-                "multiline": true
+                "multiline": true,
+                "default": "CLIP_G"
               }
             ]
           }
         }
       ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            32,
-            34,
-            47
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CLIPTextEncodeSDXLRefiner"
-      },
+      "title": "positive G",
+      "properties": {},
       "widgets_values": [
-        6,
-        1024,
-        1024,
-        ""
+        "beautiful scenery nature glass bottle landscape, , purple galaxy bottle,"
       ],
       "color": "#232",
       "bgcolor": "#353"
     },
     {
-      "id": 18,
-      "type": "CLIPTextEncodeSDXLRefiner",
+      "id": 31,
+      "type": "PrimitiveNode",
       "pos": [
-        730,
-        50
+        -340,
+        -90
       ],
       "size": {
-        "0": 400,
-        "1": 200
+        "0": 380,
+        "1": 190
       },
       "flags": {},
-      "order": 9,
+      "order": 5,
       "mode": 0,
-      "inputs": [
+      "outputs": [
         {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 39
-        },
-        {
-          "name": "text",
+          "name": "STRING",
           "type": "STRING",
-          "link": 63,
+          "links": [
+            59,
+            60
+          ],
+          "slot_index": 0,
           "widget": {
-            "name": "text",
+            "name": "text_l",
             "config": [
               "STRING",
               {
-                "multiline": true
+                "multiline": true,
+                "default": "CLIP_L"
               }
             ]
           }
         }
       ],
+      "title": "positive L",
+      "properties": {},
+      "widgets_values": [
+        "photography, 35mm lens, f1.8, bokeh"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 32,
+      "type": "PrimitiveNode",
+      "pos": [
+        -340,
+        140
+      ],
+      "size": {
+        "0": 380,
+        "1": 190
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
       "outputs": [
         {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
+          "name": "STRING",
+          "type": "STRING",
           "links": [
-            48
+            61,
+            62,
+            63
           ],
-          "shape": 3,
-          "slot_index": 0
+          "slot_index": 0,
+          "widget": {
+            "name": "text_g",
+            "config": [
+              "STRING",
+              {
+                "multiline": true,
+                "default": "CLIP_G"
+              }
+            ]
+          }
         }
       ],
-      "properties": {
-        "Node name for S&R": "CLIPTextEncodeSDXLRefiner"
-      },
+      "title": "negative",
+      "properties": {},
       "widgets_values": [
-        2,
-        1024,
-        1024,
-        ""
+        "text, watermark"
       ],
       "color": "#322",
       "bgcolor": "#533"
@@ -335,6 +346,124 @@
         0.25,
         1
       ]
+    },
+    {
+      "id": 23,
+      "type": "CLIPTextEncodeSDXLRefiner",
+      "pos": [
+        760,
+        -290
+      ],
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 38
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 60,
+          "widget": {
+            "name": "text",
+            "config": [
+              "STRING",
+              {
+                "multiline": true
+              }
+            ]
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            32,
+            34,
+            47
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncodeSDXLRefiner"
+      },
+      "widgets_values": [
+        6,
+        1024,
+        1024,
+        "photography, 35mm lens, f1.8, bokeh"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 18,
+      "type": "CLIPTextEncodeSDXLRefiner",
+      "pos": [
+        730,
+        50
+      ],
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 39
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 63,
+          "widget": {
+            "name": "text",
+            "config": [
+              "STRING",
+              {
+                "multiline": true
+              }
+            ]
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            48
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncodeSDXLRefiner"
+      },
+      "widgets_values": [
+        2,
+        1024,
+        1024,
+        "text, watermark"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
     },
     {
       "id": 17,
@@ -410,8 +539,8 @@
         0,
         1024,
         1024,
-        "CLIP_G",
-        "CLIP_L"
+        "beautiful scenery nature glass bottle landscape, , purple galaxy bottle,",
+        "photography, 35mm lens, f1.8, bokeh"
       ],
       "color": "#232",
       "bgcolor": "#353"
@@ -490,8 +619,8 @@
         0,
         1024,
         1024,
-        "CLIP_G",
-        "CLIP_L"
+        "text, watermark",
+        "text, watermark"
       ],
       "color": "#322",
       "bgcolor": "#533"
@@ -573,7 +702,7 @@
         0,
         10000,
         "disable",
-        10
+        2
       ]
     },
     {
@@ -834,135 +963,6 @@
       "widgets_values": [
         "ksampler_separate"
       ]
-    },
-    {
-      "id": 30,
-      "type": "PrimitiveNode",
-      "pos": [
-        -340,
-        -320
-      ],
-      "size": {
-        "0": 380,
-        "1": 190
-      },
-      "flags": {},
-      "order": 4,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": [
-            58
-          ],
-          "slot_index": 0,
-          "widget": {
-            "name": "text_g",
-            "config": [
-              "STRING",
-              {
-                "multiline": true,
-                "default": "CLIP_G"
-              }
-            ]
-          }
-        }
-      ],
-      "title": "positive G",
-      "properties": {},
-      "widgets_values": [
-        "beautiful scenery nature glass bottle landscape, , purple galaxy bottle,"
-      ],
-      "color": "#232",
-      "bgcolor": "#353"
-    },
-    {
-      "id": 31,
-      "type": "PrimitiveNode",
-      "pos": [
-        -340,
-        -90
-      ],
-      "size": {
-        "0": 380,
-        "1": 190
-      },
-      "flags": {},
-      "order": 5,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": [
-            59,
-            60
-          ],
-          "slot_index": 0,
-          "widget": {
-            "name": "text_l",
-            "config": [
-              "STRING",
-              {
-                "multiline": true,
-                "default": "CLIP_L"
-              }
-            ]
-          }
-        }
-      ],
-      "title": "positive L",
-      "properties": {},
-      "widgets_values": [
-        "photography, 35mm lens, f1.8, bokeh"
-      ],
-      "color": "#232",
-      "bgcolor": "#353"
-    },
-    {
-      "id": 32,
-      "type": "PrimitiveNode",
-      "pos": [
-        -340,
-        140
-      ],
-      "size": {
-        "0": 380,
-        "1": 190
-      },
-      "flags": {},
-      "order": 6,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": [
-            61,
-            62,
-            63
-          ],
-          "slot_index": 0,
-          "widget": {
-            "name": "text_g",
-            "config": [
-              "STRING",
-              {
-                "multiline": true,
-                "default": "CLIP_G"
-              }
-            ]
-          }
-        }
-      ],
-      "title": "negative",
-      "properties": {},
-      "widgets_values": [
-        "text, watermark"
-      ],
-      "color": "#322",
-      "bgcolor": "#533"
     }
   ],
   "links": [
