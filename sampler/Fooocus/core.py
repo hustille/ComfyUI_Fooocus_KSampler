@@ -147,6 +147,7 @@ def ksampler(model, positive, negative, latent, seed=None, steps=30, cfg=7.0, sa
     positive_copy = comfy.sample.broadcast_cond(positive, noise.shape[0], device)
     negative_copy = comfy.sample.broadcast_cond(negative, noise.shape[0], device)
 
+    dtype = torch.float32
     models = load_additional_models(positive, negative, dtype)
 
     sampler = KSampler(real_model, steps=steps, device=device, sampler=sampler_name, scheduler=scheduler,
@@ -234,6 +235,7 @@ def ksampler_with_refiner(model, positive, negative, refiner, refiner_positive, 
     refiner_positive_copy = comfy.sample.broadcast_cond(refiner_positive, noise.shape[0], device)
     refiner_negative_copy = comfy.sample.broadcast_cond(refiner_negative, noise.shape[0], device)
 
+    dtype = torch.float32
     models = load_additional_models(positive, negative, dtype)
 
     sampler = KSamplerWithRefiner(model=model, refiner_model=refiner, steps=steps, device=device,
