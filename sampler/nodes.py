@@ -29,6 +29,7 @@ class KSamplerWithRefiner:
                     "end_at_step": ("INT", {"default": 10000, "min": 0, "max": 10000}),
                     "return_with_leftover_noise": (["disable", "enable"], ),
                     "sharpness": ("FLOAT", {"default": 1.0, "min": 0.0, "max": 100.0}),
+                    "denoise": ("FLOAT", {"default": 1.0, "min": 0.0, "max": 1.0, "step": 0.01}),
                      }
                 }
 
