@@ -234,7 +234,7 @@ def ksampler_with_refiner(model, positive, negative, refiner, refiner_positive, 
     refiner_positive_copy = comfy.sample.broadcast_cond(refiner_positive, noise.shape[0], device)
     refiner_negative_copy = comfy.sample.broadcast_cond(refiner_negative, noise.shape[0], device)
 
-    models = get_additional_models(positive, negative. latent_image.dtype)
+    models = get_additional_models(positive, negative, latent_image.dtype)
 
     sampler = KSamplerWithRefiner(model=model, refiner_model=refiner, steps=steps, device=device,
                                   sampler=sampler_name, scheduler=scheduler,
