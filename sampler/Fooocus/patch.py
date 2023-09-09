@@ -263,6 +263,9 @@ def sampling_function_patched(model_function, x, timestep, uncond, cond, cond_sc
                                                                  {"input": input_x, "timestep": timestep_, "c": c,
                                                                   "cond_or_uncond": cond_or_uncond}).chunk(batch_chunks)
             else:
+                if type(c.get("c_crossattn")) is list:
+                    # There probably is a better way to fix this
+                    c["c_crossattn"] = torch.cat(c["c_crossattn"], 1)
                 output = model_function(input_x, timestep_, **c).chunk(batch_chunks)
             del input_x
 
