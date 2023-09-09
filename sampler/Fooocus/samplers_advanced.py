@@ -105,8 +105,8 @@ class KSamplerWithRefiner:
         positive = positive[:]
         negative = negative[:]
 
-        resolve_cond_masks(positive, noise.shape[2], noise.shape[3], self.device)
-        resolve_cond_masks(negative, noise.shape[2], noise.shape[3], self.device)
+        resolve_areas_and_cond_masks(positive, noise.shape[2], noise.shape[3], self.device)
+        resolve_areas_and_cond_masks(negative, noise.shape[2], noise.shape[3], self.device)
 
         calculate_start_end_timesteps(self.model_wrap, negative)
         calculate_start_end_timesteps(self.model_wrap, positive)
@@ -133,8 +133,8 @@ class KSamplerWithRefiner:
         refiner_positive = refiner_positive[:]
         refiner_negative = refiner_negative[:]
 
-        resolve_cond_masks(refiner_positive, noise.shape[2], noise.shape[3], self.device)
-        resolve_cond_masks(refiner_negative, noise.shape[2], noise.shape[3], self.device)
+        resolve_areas_and_cond_masks(refiner_positive, noise.shape[2], noise.shape[3], self.device)
+        resolve_areas_and_cond_masks(refiner_negative, noise.shape[2], noise.shape[3], self.device)
 
         calculate_start_end_timesteps(self.refiner_model_wrap, refiner_positive)
         calculate_start_end_timesteps(self.refiner_model_wrap, refiner_negative)
